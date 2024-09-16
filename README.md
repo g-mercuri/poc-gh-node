@@ -23,10 +23,11 @@ This project is a Node.js backend application that makes a REST call to the Open
    npm install
    ```
 
-3. Create a `.env` file in the root of the project and add your OpenAI API key:
+3. Create a `.env` file in the root of the project and add your OpenAI API key and URI:
 
    ```plaintext
    OPENAI_API_KEY=your_openai_api_key
+   OPENAI_API_URI=https://aoai-gm.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview
    ```
 
 ## Usage
@@ -49,7 +50,7 @@ This project is a Node.js backend application that makes a REST call to the Open
 
 ### Direct Request with `request.js`
 
-1. Ensure your `.env` file is correctly configured with your OpenAI API key.
+1. Ensure your `.env` file is correctly configured with your OpenAI API key and URI.
 
 2. Run the script:
 
