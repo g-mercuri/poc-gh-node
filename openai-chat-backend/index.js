@@ -15,7 +15,7 @@ app.post('/chat', async (req, res) => {
 
   try {
     const response = await axios.post(
-      'https://api.openai.com/v1/engines/davinci-codex/completions',
+      'https://aoai-gm.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview',
       {
         prompt: prompt,
         max_tokens: 150,
