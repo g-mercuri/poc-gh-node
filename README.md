@@ -31,6 +31,8 @@ This project is a Node.js backend application that makes a REST call to the Open
 
 ## Usage
 
+### Start the Server
+
 1. Start the server:
 
    ```sh
@@ -43,6 +45,16 @@ This project is a Node.js backend application that makes a REST call to the Open
    {
      "prompt": "Hi, how are you?"
    }
+   ```
+
+### Direct Request with `request.js`
+
+1. Ensure your `.env` file is correctly configured with your OpenAI API key.
+
+2. Run the script:
+
+   ```sh
+   node request.js
    ```
 
 ## Testing
@@ -76,10 +88,12 @@ openai-chat-backend/
 ├── package.json
 ├── package-lock.json
 ├── index.js
+├── request.js
 └── request.test.js
 ```
 
 - `index.js`: The main file that sets up the Express server and handles requests to the OpenAI API.
+- `request.js`: A script to make a direct POST request to the OpenAI API.
 - `request.test.js`: The test file that uses Jest to test the requests to the OpenAI API.
 
 ## Contributing
