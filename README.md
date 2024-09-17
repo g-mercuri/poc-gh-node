@@ -46,13 +46,13 @@ This project is a Node.js script that makes a REST call to the OpenAI chat compl
 1. Build the Docker image:
 
    ```sh
-   docker build -t openai-chat-backend .
+   docker compose build
    ```
 
 2. Run the Docker container:
 
    ```sh
-   docker run --env-file .env -p 3000:3000 openai-chat-backend
+   docker compose up
    ```
 
 ## Testing
