@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_URI=${OPENAI_API_URI}
+    volumes:
+      - .:/app
+      - /app/node_modules
