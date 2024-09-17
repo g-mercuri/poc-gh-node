@@ -1,39 +1,35 @@
-// index.js
-const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-const app = express();
-const port = 3000;
+const apiKey = process.env.OPENAI_API_KEY;
+const apiUri = process.env.OPENAI_API_URI;
 
-app.use(express.json());
+if (!apiKey || !apiUri) {
+  console.error('API key or URI not found. Please ensure you have configured the .env file correctly.');
+  process.exit(1);
+}
 
-app.post('/chat', async (req, res) => {
-  const { prompt } = req.body;
+const data = {
+  messages: [
+    { role: "system", content: "You are a helpful assistant." },
+    { role: "user", content: "Hi, how are you?" }
+  ],
+  max_tokens: 150,
+};
 
-  try {
-    const response = await axios.post(
-      'https://aoai-gm.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview',
-      {
-        prompt: prompt,
-        max_tokens: 150,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-        },
-      }
-    );
+const headers = {
+  'Content-Type': 'application/json',
+  'api-key': apiKey,
+};
 
-    res.json(response.data);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+axios.post(apiUri, data, { headers })
+  .then(response => {
+    const messageContent = response.data.choices[0].message.content;
+    console.log('Response:', messageContent);
+    console.log('Full Response:', response.data);
+  })
+  .catch(error => {
+    console.error('Error:', error.response ? error.response.data : error.message);
+  });

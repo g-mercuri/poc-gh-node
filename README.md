@@ -1,6 +1,6 @@
 # OpenAI Chat Backend
 
-This project is a Node.js backend application that makes a REST call to the OpenAI chat completion API using Azure OpenAI Service.
+This project is a Node.js script that makes a REST call to the OpenAI chat completion API using Azure OpenAI Service.
 
 ## Prerequisites
 
@@ -32,30 +32,12 @@ This project is a Node.js backend application that makes a REST call to the Open
 
 ## Usage
 
-### Start the Server
-
-1. Start the server:
-
-   ```sh
-   node index.js
-   ```
-
-2. Make a POST request to `http://localhost:3000/chat` with a JSON body containing the prompt, for example:
-
-   ```json
-   {
-     "prompt": "Hi, how are you?"
-   }
-   ```
-
-### Direct Request with `request.js`
-
 1. Ensure your `.env` file is correctly configured with your OpenAI API key and URI.
 
 2. Run the script:
 
    ```sh
-   node request.js
+   node index.js
    ```
 
 ## Testing
@@ -89,13 +71,11 @@ openai-chat-backend/
 ├── package.json
 ├── package-lock.json
 ├── index.js
-├── request.js
-└── request.test.js
+└── index.test.js
 ```
 
-- `index.js`: The main file that sets up the Express server and handles requests to the OpenAI API.
-- `request.js`: A script to make a direct POST request to the OpenAI API.
-- `request.test.js`: The test file that uses Jest to test the requests to the OpenAI API.
+- `index.js`: A script to make a direct POST request to the OpenAI API.
+- `index.test.js`: The test file that uses Jest to test the requests to the OpenAI API.
 
 ## Contributing
 
